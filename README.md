@@ -1,9 +1,9 @@
 <h1>Beautifull guide</h1> 
-<h2>explaining how to run tests</h2>
+<h2>Explaining how to run tests</h2>
 
 <h3>Read following guid carefully and you will be rewarded with perfectly running tests</h3>
 
-1. Tests are written in Python 3.10 with use of following packages (which should ne installed separatelly:
+1. Tests are written in Python 3.10 with use of following packages (which should be installed separatelly:
    1. pytest-bdd (pip install pytest-bdd)
    2. faker (pip install faker)
    3. pytest
@@ -13,7 +13,7 @@
 
 Tests are written in BDD (Behavior Driven Development). Given way of preparing tests was used to allow business users
 easily understand and pariticpate in scenarios preparation.
-BDD uses following keywords:
+BDD uses following keywords to:
 - GIVEN
 - WHEN
 - THEN
@@ -26,4 +26,4 @@ which are later subject for automation.
 
 To run all tests use:
 
-- python -m pytest
+- python -m pytest (command 'pytest' alone does not work properly)
