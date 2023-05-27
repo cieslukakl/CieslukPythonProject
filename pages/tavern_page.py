@@ -21,7 +21,6 @@ class Locators:
     FILTER_XPATH = './/div[@class="multiselect__content-wrapper" and @style="max-height: 300px;"]/ul/li[@id="null-0"]'
     FILTER_XPATH_REPLACE_STRING = "null-0"
     SEARCH_FIELD = (By.XPATH, './/input[@placeholder="SEARCH"]')
-    # SUBMIT_BUTTON = (By.XPATH, './/span[text()="Submit"]')
     SUBMIT_BUTTON = (By.XPATH, './/button[@type="submit"]')
     WARRIOR_FOUND = (By.XPATH, '//div[@class = "flex items-start"]/div/a')
     WARRIOR_NOT_FOUND = (By.XPATH, '//h2[text() = "No Warriors Found"]')

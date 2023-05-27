@@ -1,8 +1,7 @@
 from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
 
-class BasePage():
+
+class BasePage:
     """
     Base class used by other pages
     """
@@ -12,5 +11,5 @@ class BasePage():
         self.alert = Alert(self.driver)
 
     def _verify_page(self):
-        """Autotest strony - utuchamiany automatycznie po wej\u015bciu na ni\u0105"""
+        """To implement in the future once such need occurs"""
         return

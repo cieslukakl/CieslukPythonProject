@@ -9,6 +9,7 @@ class Locators:
     USER_LOGIN = (By.XPATH, './/span[@title="ALK"]')
     MENU_BUTTON = (By.XPATH, './/button[@title="Menu"]')
     TAVERN_SUBPAGE = (By.XPATH, './/a[@href="/tavern/"]')
+    PROFILE_SUBPAGE = (By.XPATH, './/nav/div/a[@href="/me/"]')
 
 
 class UserHomePage(BasePage):
@@ -27,3 +28,5 @@ class UserHomePage(BasePage):
     def select_tavern_from_menu(self):
         self.driver.find_element(*Locators.TAVERN_SUBPAGE).click()
 
+    def select_profile_from_menu(self):
+        self.driver.find_element(*Locators.PROFILE_SUBPAGE).click()

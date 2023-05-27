@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,11 +13,12 @@ class Locators:
     WARNING_FIRST = (By.XPATH, './/p[@class="text-shadow-xs-weak font-sans text-xs font-medium leading-normal text-white"]',"User credentials are not valid")
     WARNING_SECOND = (By.XPATH, './/span[@class="text-red-lighter"]', "Incorrect username or password")
 
+
 class LoginPage(BasePage):
-    """Strona logowania"""
+    """Login page"""
 
     def _verify_page(self):
-        wait = WebDriverWait(self.driver,3)
+        wait = WebDriverWait(self.driver, 3)
         wait.until((EC.visibility_of_element_located(Locators.USERNAME_INPUT)))
         wait.until((EC.visibility_of_element_located(Locators.PASSWORD_INPUT)))
 
@@ -36,6 +39,3 @@ class LoginPage(BasePage):
     def verify_warning_message(self, method, xpath):
         """Finds warning"""
         return self.driver.find_element(method, xpath)
-
-    def click_cancel(self):
-        pass

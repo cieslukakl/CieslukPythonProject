@@ -19,3 +19,7 @@ class Utils:
     def get_random_warrior_id(self):
         return random.randint(0, 5999)
 
+    def standarize_text(self, text):
+        text = ''.join(text.splitlines())
+        text = text.replace(". ",".")
+        return text

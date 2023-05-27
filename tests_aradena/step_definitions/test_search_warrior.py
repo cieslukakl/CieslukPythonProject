@@ -32,7 +32,7 @@ def test_warrior_search_successfull_random():
 def browser():
     b = webdriver.Chrome()
     b.maximize_window()
-    b.implicitly_wait(3)
+    b.implicitly_wait(10)
     yield b
     b.quit()
 

@@ -1,12 +1,8 @@
-#@web @login
 Feature: Login to Aradena webiste
   As a web3 player,
   I want to login to aradena.io website,
   So I can start playing this amazing game.
 
-  # The "@" annotations are tags
-  # One feature can have multiple scenarios
-  # The lines immediately after the feature title are just comments
 
   Scenario Outline: Successful Aradena page login
     Given I am on Aradena login page

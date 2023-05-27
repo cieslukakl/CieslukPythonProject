@@ -1,11 +1,9 @@
 import pytest
-import time
 from pytest_bdd import scenario, given, when, then, parsers
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from pages.login_page import Locators, LoginPage
 from pages.user_home_page import UserHomePage
-from selenium.webdriver.common.keys import Keys
 
 # Constants
 
@@ -16,12 +14,12 @@ PASSWORD = "alk123"
 # Scenarios
 
 
-@scenario('../feature_files/login.feature','Successful Aradena page login')
+@scenario('../feature_files/login.feature', 'Successful Aradena page login')
 def test_login_successfull():
     pass
 
 
-@scenario('../feature_files/login.feature','Unsuccessful Aradena page login')
+@scenario('../feature_files/login.feature', 'Unsuccessful Aradena page login')
 def test_login_unsuccessfull():
     pass
 
@@ -31,7 +29,7 @@ def test_login_unsuccessfull():
 @pytest.fixture
 def browser():
     b = webdriver.Chrome()
-    b.implicitly_wait(3)
+    b.implicitly_wait(10)
     b.maximize_window()
     yield b
     b.quit()
@@ -48,11 +46,6 @@ def enter_login_page(browser):
 def input_user_credentials(browser, username, password):
     LoginPage(browser).enter_username(username)
     LoginPage(browser).enter_password(password)
-    # LoginPage.enter_username(username)
-    # username_input = browser.find_element(*Locators.USERNAME_INPUT)
-    # username_input.send_keys(username)
-    # password_input = browser.find_element(*Locators.PASSWORD_INPUT)
-    # password_input.send_keys(password)
 
 # When Steps
 
@@ -60,9 +53,6 @@ def input_user_credentials(browser, username, password):
 @when(parsers.parse('I select "Log in" button'))
 def select_login_button(browser):
     LoginPage(browser).click_log_in()
-    # login_button = browser.find_element(*Locators.LOGIN_BUTTON)
-    # login_button.click()
-    # time.sleep(0)
 
 # Then Steps
 
