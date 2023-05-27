@@ -92,7 +92,7 @@ def check_displayed_warrior(browser):
     assert TavernPage(browser).find_displayed_warriors() == str(1)
 
 
-@then(parsers.parse('I can see "No warriors found" message'))
+@then('I can see "No warriors found" message')
 def check_no_warriors_displayed(browser):
     assert TavernPage(browser).check_warriors_not_found_message() == True
 

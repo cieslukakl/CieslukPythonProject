@@ -50,20 +50,20 @@ def input_user_credentials(browser, username, password):
 # When Steps
 
 
-@when(parsers.parse('I select "Log in" button'))
+@when('I select "Log in" button')
 def select_login_button(browser):
     LoginPage(browser).click_log_in()
 
 # Then Steps
 
 
-@then(parsers.parse('I see user home page'))
+@then('I see user home page')
 def check_home_screen(browser):
     user_logged_visible = UserHomePage(browser).get_user_login_from_home_page()
     assert user_logged_visible.get_attribute('title') == USERNAME
 
 
-@then(parsers.parse('I see login warning'))
+@then('I see login warning')
 def check_warning(browser):
     # There are two different warnings possible, thus two different XPATHS for checking text of warning
     for locator in [Locators.WARNING_FIRST, Locators.WARNING_SECOND]:
