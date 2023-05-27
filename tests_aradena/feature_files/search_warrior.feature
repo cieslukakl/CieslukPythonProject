@@ -1,4 +1,3 @@
-#@web @search
 Feature: Search for specific warrior in tavern
   As a web3 player,
   I want to search specific warriror in tavern,

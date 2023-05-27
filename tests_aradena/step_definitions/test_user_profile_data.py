@@ -14,10 +14,12 @@ from pages.user_home_page import UserHomePage
 def test_user_profile_checks():
     pass
 
+
 @scenario('../feature_files/user_profile_checks.feature', 'All user attributes are displayed')
 def test_user_profile_all_attributes_displayed():
     pass
-#Fixtures
+
+# Fixtures
 
 
 @pytest.fixture

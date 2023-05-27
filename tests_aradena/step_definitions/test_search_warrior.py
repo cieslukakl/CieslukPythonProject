@@ -1,9 +1,8 @@
 import pytest
-import time
 from pytest_bdd import scenario, given, when, then, parsers
 from selenium import webdriver
 from test_login import logged_in_precondition
-from pages.tavern_page import TavernPage, Locators
+from pages.tavern_page import TavernPage
 from pages.user_home_page import UserHomePage
 from utils import Utils
 from pages.tavern_page import FilterMapper
@@ -22,11 +21,13 @@ def test_warrior_search_successfull():
 def test_warrior_search_unsuccessfull():
     pass
 
+
 @scenario('../feature_files/search_warrior.feature', 'Successfull search for warrior in tavern (RANDOM)')
 def test_warrior_search_successfull_random():
     pass
 
-#Fixtures
+# Fixtures
+
 
 @pytest.fixture
 def browser():
@@ -37,6 +38,7 @@ def browser():
     b.quit()
 
 # Given Steps
+
 
 @given('I am logged in to Aradena')
 def logged_in(browser):
@@ -76,7 +78,7 @@ def input_random_warrior_id(browser):
 @when('I select Submit button')
 def select_submit_button(browser):
     TavernPage(browser).click_submit_button()
-    time.sleep(3)
+
 # Then Steps
 
 

@@ -1,5 +1,4 @@
 import pytest
-import time
 from pytest_bdd import scenario, given, when, then
 from selenium import webdriver
 from test_login import logged_in_precondition
@@ -9,16 +8,17 @@ from pages.user_home_page import UserHomePage
 from utils import Utils
 from faker import Faker
 
-
 # Constants
 
 # Scenarios
+
 
 @scenario('../feature_files/settings.feature', 'Successfull personal bio change')
 def test_setting_personal_bio():
     pass
 
-#Fixtures
+# Fixtures
+
 
 @pytest.fixture
 def browser():
@@ -27,6 +27,7 @@ def browser():
     b.implicitly_wait(10)
     yield b
     b.quit()
+
 
 @pytest.fixture
 def data_from_faker():
@@ -49,13 +50,11 @@ def enter_tavern_page(browser):
 @given('I select Settings icon')
 def select_settings(browser):
     UserProfilePage(browser).click_settings_icon()
-    time.sleep(5)
 
 
 @given('I input faker values for Personal bio', target_fixture="data_from_faker")
 def input_faker_values_into_personal_bio(browser):
     faker_data = Faker().text()
-    print(faker_data)
     SettingsPage(browser).enter_personal_bio(faker_data)
     return faker_data
 
@@ -66,7 +65,6 @@ def input_faker_values_into_personal_bio(browser):
 @when('I select Save button')
 def select_save_button(browser):
     SettingsPage(browser).select_save_button()
-    time.sleep(3)
 # Then Steps
 
 

@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 
 
 class Locators:
@@ -27,6 +26,7 @@ class Locators:
 
 
 class UserProfilePage(BasePage):
+    """User Profile page with all user details"""
 
     def _verify_page(self):
         wait = WebDriverWait(self.driver, 3)
@@ -48,7 +48,6 @@ class UserProfilePage(BasePage):
         lst = []
         for k, v in Locators.USER_ATTRIBUTES_DICT.items():
             print(*v)
-            # time.sleep(1)
             lst.append(self.driver.find_element(*v))
         return lst
 

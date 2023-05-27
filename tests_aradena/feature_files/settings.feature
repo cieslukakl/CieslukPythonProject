@@ -1,4 +1,3 @@
-#@web @search
 Feature: Set user specific settings for my profile
   As a web3 player,
   I want to set up my personal profile,

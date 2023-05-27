@@ -13,10 +13,10 @@ class Locators:
 
 
 class UserHomePage(BasePage):
-    """Strona logowania"""
+    """User Home page with map visible"""
 
     def _verify_page(self):
-        wait = WebDriverWait(self.driver,3)
+        wait = WebDriverWait(self.driver, 3)
         wait.until((EC.visibility_of_element_located(Locators.USER_LOGIN)))
 
     def get_user_login_from_home_page(self):

@@ -1,9 +1,8 @@
-import time
-
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 class Locators:
     """Lokatory strony logowania"""
