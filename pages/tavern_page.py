@@ -38,7 +38,7 @@ class TavernPage(BasePage):
         self.driver.find_element(*Locators.FILTER_BY_COLLECTION).click()
         collection_xpath = Utils().create_xpath(Locators.FILTER_XPATH, Locators.FILTER_XPATH_REPLACE_STRING,
                                                 FilterMapper.CollectionFilterDict[collection])
-        self.driver.find_element(By.XPATH,collection_xpath).click()
+        self.driver.find_element(By.XPATH, collection_xpath).click()
 
     def select_collection_filter_random(self):
         """Filters collection"""

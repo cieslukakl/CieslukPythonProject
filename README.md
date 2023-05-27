@@ -6,8 +6,8 @@
 1. Tests are written in Python 3.10 with use of following packages (which should be installed separatelly:
    1. pytest-bdd (pip install pytest-bdd)
    2. faker (pip install faker)
-   3. pytest
-   4. selenium
+   3. pytest (pip install pytest)
+   4. selenium (pip install selenium))
 2. Installed plugins:
    1. Gherkin 221.5080.126
 

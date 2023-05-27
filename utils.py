@@ -5,9 +5,7 @@ class Utils:
     """Utilities functions class"""
     @staticmethod
     def create_xpath(xpath, xpath_replace_string, mapper):
-        xpath = xpath.replace(xpath_replace_string, mapper)
-        print(xpath)
-        return xpath
+        return xpath.replace(xpath_replace_string, mapper)
 
     @staticmethod
     def get_random_collection_filter(d):
