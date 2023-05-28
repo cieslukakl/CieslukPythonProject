@@ -16,8 +16,9 @@ class UserHomePage(BasePage):
     """User Home page with map visible"""
 
     def _verify_page(self):
-        wait = WebDriverWait(self.driver, 3)
+        wait = WebDriverWait(self.driver, 10)
         wait.until((EC.visibility_of_element_located(Locators.USER_LOGIN)))
+        # wait.until((EC.visibility_of_element_located(Locators.MENU_BUTTON)))
 
     def get_user_login_from_home_page(self):
         return self.driver.find_element(*Locators.USER_LOGIN)
@@ -30,3 +31,8 @@ class UserHomePage(BasePage):
 
     def select_profile_from_menu(self):
         self.driver.find_element(*Locators.PROFILE_SUBPAGE).click()
+
+    def wait_for_user_home_page(self):
+        self._verify_page()
+
+

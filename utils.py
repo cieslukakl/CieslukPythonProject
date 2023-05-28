@@ -8,6 +8,12 @@ class Utils:
         return xpath.replace(xpath_replace_string, mapper)
 
     @staticmethod
+    def create_xpath_warrior(xpath, warriorid, mapper):
+        replaced_collection = xpath.replace("/1/", mapper)
+        replaced_id = replaced_collection.replace("3183", warriorid)
+        return replaced_id
+
+    @staticmethod
     def get_random_collection_filter(d):
         lst = []
         for k in d:

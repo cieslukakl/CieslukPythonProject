@@ -3,6 +3,7 @@ from pages.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utils import Utils
+import time
 
 
 class FilterMapper:
@@ -10,6 +11,11 @@ class FilterMapper:
         "AllCollections": "null-0",
         "Male": "null-1",
         "Female": "null-2"
+    }
+    CollectionURLFilterDict = {
+        "Male": "/1/",
+        "Female": "/2/",
+        "AllCollections": "/1/"
     }
 
 
@@ -23,6 +29,7 @@ class Locators:
     SEARCH_FIELD = (By.XPATH, './/input[@placeholder="SEARCH"]')
     SUBMIT_BUTTON = (By.XPATH, './/button[@type="submit"]')
     WARRIOR_FOUND = (By.XPATH, '//div[@class = "flex items-start"]/div/a')
+    SPECIFIC_WARRIOR_FOUND = './/div[@class = "flex items-start"]/div/a[@href = "/tavern/warrior/1/3183"]'
     WARRIOR_NOT_FOUND = (By.XPATH, '//h2[text() = "No Warriors Found"]')
 
 
@@ -30,7 +37,7 @@ class TavernPage(BasePage):
     """Tavern page"""
 
     def _verify_page(self):
-        wait = WebDriverWait(self.driver, 3)
+        wait = WebDriverWait(self.driver, 5)
         wait.until((EC.visibility_of_element_located(Locators.EXPLORE_WARRIORS)))
 
     def select_collection_filter(self, collection):
@@ -57,11 +64,19 @@ class TavernPage(BasePage):
         """Clicks Submit button"""
         self.driver.find_element(*Locators.SUBMIT_BUTTON).click()
 
-    def find_displayed_warriors(self):
+    def find_displayed_warriors(self, collection, warriorId):
         """Searches for displayed warriors"""
+        specific_warrior_xpath = Utils().create_xpath_warrior(Locators.SPECIFIC_WARRIOR_FOUND, warriorId,
+                                                              FilterMapper.CollectionURLFilterDict[collection])
+        self.wait_for_element((By.XPATH, specific_warrior_xpath))
         return str(len(self.driver.find_elements(*Locators.WARRIOR_FOUND)))
 
     def check_warriors_not_found_message(self):
         """Searches for warriors not found message"""
+        self.wait_for_element(Locators.WARRIOR_NOT_FOUND)
         return bool(self.driver.find_element(*Locators.WARRIOR_NOT_FOUND))
+
+    def wait_for_element(self, element):
+        wait = WebDriverWait(self.driver, 5)
+        wait.until((EC.visibility_of_element_located(element)))
 

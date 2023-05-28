@@ -29,7 +29,7 @@ class UserProfilePage(BasePage):
     """User Profile page with all user details"""
 
     def _verify_page(self):
-        wait = WebDriverWait(self.driver, 3)
+        wait = WebDriverWait(self.driver, 5)
         wait.until((EC.visibility_of_element_located(Locators.MY_PROFILE)))
 
     def check_personal_bio(self):

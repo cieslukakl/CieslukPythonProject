@@ -37,6 +37,16 @@ def browser():
     yield b
     b.quit()
 
+
+@pytest.fixture
+def random_warrior_id():
+    return ""
+
+
+@pytest.fixture
+def random_collection():
+    return ""
+
 # Given Steps
 
 
@@ -56,10 +66,11 @@ def filter_collection(browser, collection):
     TavernPage(browser).select_collection_filter(collection)
 
 
-@given('I Filter By male or female')
+@given('I Filter By male or female', target_fixture="random_collection")
 def filter_collection_random(browser):
-    collection = Utils().get_random_collection_filter(FilterMapper.CollectionFilterDict)
+    collection = Utils().get_random_collection_filter(FilterMapper.CollectionURLFilterDict)
     TavernPage(browser).select_collection_filter(collection)
+    return collection
 
 
 @given(parsers.parse('I input warrior {warriorId}'))
@@ -67,10 +78,11 @@ def input_warrior_id(browser, warriorId):
     TavernPage(browser).enter_warrior_id(warriorId)
 
 
-@given('I input 1 random valid warior ID')
+@given('I input 1 random valid warior ID', target_fixture="random_warrior_id")
 def input_random_warrior_id(browser):
     warriorId = Utils().get_random_warrior_id()
     TavernPage(browser).enter_warrior_id(warriorId)
+    return warriorId
 
 # When Steps
 
@@ -82,14 +94,14 @@ def select_submit_button(browser):
 # Then Steps
 
 
-@then(parsers.parse('I can see {number} of warriors found'))
-def check_displayed_warriors(browser, number):
-    assert TavernPage(browser).find_displayed_warriors() == number
+@then(parsers.parse('I can see {number} of warriors found for {collection} with {warriorId}'))
+def check_displayed_warriors(browser, number, collection, warriorId):
+    assert TavernPage(browser).find_displayed_warriors(collection, warriorId) == number
 
 
 @then('I can see 1 warrior found')
-def check_displayed_warrior(browser):
-    assert TavernPage(browser).find_displayed_warriors() == str(1)
+def check_displayed_warrior(browser, random_warrior_id, random_collection):
+    assert TavernPage(browser).find_displayed_warriors(random_collection, str(random_warrior_id)) == str(1)
 
 
 @then('I can see "No warriors found" message')

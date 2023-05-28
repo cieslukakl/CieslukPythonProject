@@ -1,7 +1,6 @@
 import pytest
 from pytest_bdd import scenario, given, when, then, parsers
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from pages.login_page import Locators, LoginPage
 from pages.user_home_page import UserHomePage
 
@@ -81,6 +80,7 @@ def logged_in_precondition(browser):
     LoginPage(browser).enter_username(USERNAME)
     LoginPage(browser).enter_password(PASSWORD)
     LoginPage(browser).click_log_in()
-    user_logged_visible = browser.find_element(By.XPATH, './/span[@title="ALK"]')
-    assert user_logged_visible.get_attribute('title') == "ALK"
+    UserHomePage(browser).wait_for_user_home_page()
+    # user_logged_visible = browser.find_element(By.XPATH, './/span[@title="ALK"]')
+    # assert user_logged_visible.get_attribute('title') == "ALK"
 

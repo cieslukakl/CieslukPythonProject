@@ -1,4 +1,3 @@
-#@web @search
 Feature: User profile attributes check
   As a web3 player,
   I want to check whether data on my profile is displayed correctly

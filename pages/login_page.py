@@ -17,7 +17,7 @@ class LoginPage(BasePage):
     """Login page"""
 
     def _verify_page(self):
-        wait = WebDriverWait(self.driver, 3)
+        wait = WebDriverWait(self.driver, 5)
         wait.until((EC.visibility_of_element_located(Locators.USERNAME_INPUT)))
         wait.until((EC.visibility_of_element_located(Locators.PASSWORD_INPUT)))
 

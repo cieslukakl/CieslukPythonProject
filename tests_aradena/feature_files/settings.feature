@@ -3,10 +3,6 @@ Feature: Set user specific settings for my profile
   I want to set up my personal profile,
   in a way other players can recognize me.
 
-  # The "@" annotations are tags
-  # One feature can have multiple scenarios
-  # The lines immediately after the feature title are just comments
-
 
   Scenario: Successfull personal bio change
     Given I am logged in to Aradena

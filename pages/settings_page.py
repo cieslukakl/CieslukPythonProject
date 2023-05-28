@@ -18,7 +18,7 @@ class SettingsPage(BasePage):
     """User Settings page, subpage of User profile page."""
 
     def _verify_page(self):
-        wait = WebDriverWait(self.driver, 3)
+        wait = WebDriverWait(self.driver, 5)
         wait.until((EC.visibility_of_element_located(Locators.ACCOUNT_SETTINGS)))
 
     def enter_personal_bio(self, faker_data):

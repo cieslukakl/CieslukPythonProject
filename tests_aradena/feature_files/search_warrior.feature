@@ -13,7 +13,7 @@ Feature: Search for specific warrior in tavern
     And I select Filter By <collection>
     And I input warrior <warriorId>
     When I select Submit button
-    Then I can see <number> of warriors found
+    Then I can see <number> of warriors found for <collection> with <warriorId>
 
     Examples:
     |collection    |warriorId|number|
