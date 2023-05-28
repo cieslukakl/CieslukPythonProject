@@ -21,7 +21,7 @@ class Locators:
         "POTIONS": (By.XPATH, './/div[text()="Potions"]//parent::div//span'),
         "WINE": (By.XPATH, './/div[text()="Wine"]//parent::div//span'),
         "BEAST_BLOOD": (By.XPATH, './/div[text()="Beast Blood"]//parent::div//span'),
-        # "QUESTS_COMPLETED": (By.XPATH, './/div[text()="Quests Completed"]//parent::div//span')
+        "QUESTS_COMPLETED": (By.XPATH, './/div[text()="Quests Completed"]')
     }
 
 

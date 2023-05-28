@@ -81,6 +81,4 @@ def logged_in_precondition(browser):
     LoginPage(browser).enter_password(PASSWORD)
     LoginPage(browser).click_log_in()
     UserHomePage(browser).wait_for_user_home_page()
-    # user_logged_visible = browser.find_element(By.XPATH, './/span[@title="ALK"]')
-    # assert user_logged_visible.get_attribute('title') == "ALK"
 
